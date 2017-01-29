@@ -36,7 +36,7 @@
     form.action = url;
     var inputs = document.createDocumentFragment();
     fields = traverse(fields);
-    console.table(fields);
+    // console.table(fields);
     fields.forEach(function (field) {
         var input = document.createElement("input");
         input.name = field.name;
