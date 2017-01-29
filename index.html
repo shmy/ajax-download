@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <button id="btn">download</button>
+    <script>
+        btn.addEventListener("click", () => {
+            $download("http://localhost:3000/download",{
+                number: 1,
+                string: "sadda",
+                array: ["s", "ss", "sss"],
+                object: {
+                    a: 1,
+                    b: 2,
+                    c: 3
+                }
+            });
+        }, false)
+    </script>
+</body>
+</html>
