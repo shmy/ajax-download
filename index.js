@@ -13,6 +13,14 @@
         // Browser Global
         (global.$download = factory);
 })(this, function (url, fields, method) {
+    var iframeName = "__iframe_downloader__";
+    var iframe = document.querySelector("iframe[name=" + iframeName + "]");
+    if (!!iframe === false){
+        iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.name = iframeName;
+        document.body.appendChild(iframe);
+    }
     method = method || "POST";
     // http://qa.helplib.com/114820
     var traverse = function (obj, key) {
@@ -29,14 +37,12 @@
     // Throw error in Microsoft Edge
     // form.enctype = "application/json";
     form.style.display = "none";
-    // Open in new tab
-    // form.target = "_blank";
+    form.target = iframeName;
     form.method = method;
     form.acceptCharset = "utf-8";
     form.action = url;
     var inputs = document.createDocumentFragment();
     fields = traverse(fields);
-    // console.table(fields);
     fields.forEach(function (field) {
         var input = document.createElement("input");
         input.name = field.name;

@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({
 app.use("/", express.static("../"));
 app.post("/download", (req, res) => {
     res.setHeader("Content-Type", "application/force-download");
+    // res.setHeader("Content-Type", "application/octet-stream");
+    // res.setHeader("Content-Type", "application/download");
     res.setHeader("Content-Disposition", "attachment; filename=" + "Report.txt");
     res.send(req.body);
 });
