@@ -45,6 +45,7 @@
     fields = traverse(fields);
     fields.forEach(function (field) {
         var input = document.createElement("input");
+        input.type = "hidden";
         input.name = field.name;
         input.value = field.value;
         inputs.appendChild(input);
